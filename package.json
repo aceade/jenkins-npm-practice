@@ -1,0 +1,28 @@
+{
+  "name": "jenkins-npm-practice",
+  "version": "1.0.0",
+  "description": "A practice NPM Jenkins pipeline",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-jshint": "^2.1.0",
+    "jshint": "^2.12.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aceade/jenkins-npm-practice.git"
+  },
+  "keywords": [
+    "practice"
+  ],
+  "author": "aceade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aceade/jenkins-npm-practice/issues"
+  },
+  "homepage": "https://github.com/aceade/jenkins-npm-practice#readme"
+}
