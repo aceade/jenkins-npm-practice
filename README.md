@@ -53,9 +53,7 @@ pipeline {
 ```
 
 ### The Gulp task
-The Gulpfile contains a single task: validating some dodgy JavaScript code using JSHint. This is set to deliberately pass.
-
-The following JSHint rules are configured inside the `.jshintrc` file:
+The Gulpfile contains a single task: validating some JavaScript code using JSHint. The following JSHint rules are configured inside the `.jshintrc` file:
 * undef - catch potential mistyped or leaking variables 
 * unused - unused functions and variables are not allowed
 * strict - all functions must start with a "use strict" statement, if not already nested inside a function that contains this
@@ -64,7 +62,7 @@ The following JSHint rules are configured inside the `.jshintrc` file:
 * browser - assume that this will be running inside a browser.
 * devel - assume that `console` and `alert`  functions may be present.
 
-The code inside `src/badCode.js` violates these rules, unlike the code inside `goodCode.js`.
+The code inside `src/badCode.js` violates these rules, unlike the code inside `goodCode.js`. `badCode.js` is deliberately excluded from validation.
 
 ## Licence
 See the attached LICENSE file.
