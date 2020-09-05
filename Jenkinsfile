@@ -1,12 +1,15 @@
 pipeline {
     agent { 
-        docker { image 'node:14-alpine' } 
+        docker { 
+            image 'node:14-alpine' 
+            args '--user jenkins'
+        } 
     }
     stages {
         stage('build') {
             steps {
                 sh 'npm --version'
-                sh 'npm install --unsafe-perm'
+                sh 'npm install'
                 sh 'gulp'
             }
         }
