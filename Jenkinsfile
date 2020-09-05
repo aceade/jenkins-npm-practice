@@ -6,7 +6,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm --version'
-                sh 'npm install'
+                sh 'npm install --unsafe-perm'
                 sh 'gulp'
             }
         }
@@ -16,17 +16,16 @@ pipeline {
             echo "Running the build"
         }
         success {
-        echo 'This will run only if successful'
+            echo 'Build completed successfully'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'The build failed'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'The build is unstable!'
         }
         changed {
             echo 'This will run only if the state of the Pipeline has changed'
-            echo 'For example, if the Pipeline was previously failing but is now successful'
         }
     }
 }
