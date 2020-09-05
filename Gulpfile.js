@@ -7,6 +7,9 @@ function lint() {
     return gulp.src('./src/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default', { verbose: true }));
+    // if I wanted this to fail upon invalid code, the above line would be replaced with:
+    //.pipe(jshint.reporter('jshint-stylish'))
+    //.pipe(jshint.reporter('fail'));
 }
 
 // export it as a module

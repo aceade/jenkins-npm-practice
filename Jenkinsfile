@@ -16,9 +16,6 @@ pipeline {
         }
     }
     post {
-        always {
-            echo "Running the build"
-        }
         success {
             echo 'Build completed successfully'
         }
@@ -29,7 +26,7 @@ pipeline {
             echo 'The build is unstable!'
         }
         changed {
-            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'Pipeline state has changed'
         }
     }
 }
