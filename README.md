@@ -64,7 +64,7 @@ The following JSHint rules are configured inside the `.jshintrc` file:
 * browser - assume that this will be running inside a browser.
 * devel - assume that `console` and `alert`  functions may be present.
 
-The code inside `src/badCode.js` violates these rules.
+The code inside `src/badCode.js` violates these rules, unlike the code inside `goodCode.js`.
 
 ## Licence
 See the attached LICENSE file.
