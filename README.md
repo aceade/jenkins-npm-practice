@@ -1,5 +1,5 @@
 # jenkins-npm-practice
-A practice project to teach myself how to create Jenkins builds. It contains a sample Gulp task to run JSHint validation on a 
+A practice project to teach myself how to create Jenkins builds. It contains a sample Gulp task to run JSHint validation on a piece of JavaScript code.
 
 ## Setting up Jenkins
 This assumes you have Jenkins installed. If not, that is beyond the scope of this README; consult [the Jenkins documentation](https://www.jenkins.io/doc/book/installing/) for details.
@@ -22,7 +22,7 @@ pipeline {
     agent { 
         docker { 
             image 'node:14-alpine' 
-            args '--user root'  // required due to permissions issues
+            args '--user root'  // required due to permissions issues inside Docker
         } 
     }
     stages {
