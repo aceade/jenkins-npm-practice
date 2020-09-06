@@ -48,6 +48,10 @@ pipeline {
         changed {
             echo 'Pipeline state has changed'
         }
+        always {
+            archiveArtifacts "dist/*"   // where to find the build artifacts
+            stash includes: 'dist/*.js', name: 'debugBuiltArtifacts' // what they are
+        }
     }
 }
 ```
