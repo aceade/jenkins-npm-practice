@@ -29,7 +29,7 @@ pipeline {
             echo 'Pipeline state has changed'
         }
         always {
-            archive "dist/*"
+            archiveArtifacts "dist/*"
             stash includes: 'dist/*.js', name: 'debugBuiltArtifacts'
         }
     }

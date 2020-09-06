@@ -68,7 +68,7 @@ The following JSHint rules are configured inside the `.jshintrc` file:
 The code inside `src/badCode.js` violates these rules, unlike the code inside `goodCode.js`. `badCode.js` is deliberately excluded from validation.
 
 #### Minification
-This task just takes `src/goodCode.js` and minifies it. The result will be inside the `dist` folder.
+This task just takes `src/goodCode.js` and minifies it. The result will be inside the `dist` folder, and Jenkins considers this to be the build artifact.
 
 ## Licence
 See the attached LICENSE file.
