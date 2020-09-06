@@ -18,8 +18,7 @@ function compress() {
     return pipeline(
         gulp.src('src/goodCode.js'),
         uglify(),
-        gulp.dest('dist')
-  );
+        gulp.dest('dist'));
 }
 
 // export it as a module

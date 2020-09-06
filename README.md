@@ -53,7 +53,10 @@ pipeline {
 ```
 
 ### The Gulp task
-The Gulpfile contains a single task: validating some JavaScript code using JSHint. The following JSHint rules are configured inside the `.jshintrc` file:
+The Gulpfile contains two task: validating some JavaScript code using JSHint, and then minifying with UglifyJS. 
+
+#### JSHint validation
+The following JSHint rules are configured inside the `.jshintrc` file:
 * undef - catch potential mistyped or leaking variables 
 * unused - unused functions and variables are not allowed
 * strict - all functions must start with a "use strict" statement, if not already nested inside a function that contains this
@@ -63,6 +66,9 @@ The Gulpfile contains a single task: validating some JavaScript code using JSHin
 * devel - assume that `console` and `alert`  functions may be present.
 
 The code inside `src/badCode.js` violates these rules, unlike the code inside `goodCode.js`. `badCode.js` is deliberately excluded from validation.
+
+#### Minification
+This task just takes `src/goodCode.js` and minifies it. The result will be inside the `dist` folder.
 
 ## Licence
 See the attached LICENSE file.
