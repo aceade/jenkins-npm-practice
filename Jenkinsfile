@@ -28,5 +28,9 @@ pipeline {
         changed {
             echo 'Pipeline state has changed'
         }
+        always {
+            archive "project/dist/*"
+            stash includes: 'project/dist/*.js', name: 'debugBuiltArtifacts'
+        }
     }
 }
