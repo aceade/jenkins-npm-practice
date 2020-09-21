@@ -21,14 +21,14 @@ The comments here are to explain what is required.
 pipeline {
     agent { 
         docker { 
-            image 'node:14-alpine' 
-            args '--user root'  // required due to permissions issues inside Docker
+            image 'node:14-alpine'  // if the build tools require Git, replace with e.g. 'node:14'
+            args '--user root'      // required due to permissions issues inside Docker
         } 
     }
     stages {
         stage('build') {
             steps {
-                sh 'npm --version'  // debugging step to check NPM version
+                sh 'npm --version'          // debugging step to check NPM version
                 sh 'npm install -g gulp'    // install globally so that Gulp is on the global PATH
                 sh 'npm install'            // install the actual dependencies
                 sh 'gulp'                   // run the gulp task
@@ -38,6 +38,8 @@ pipeline {
     post {
         success {
             echo 'Build completed successfully'
+            archiveArtifacts "dist/*"   // where to find the build artifacts
+            stash includes: 'dist/*.js', name: 'debugBuiltArtifacts' // what they are
         }
         failure {
             echo 'The build failed'
@@ -47,10 +49,6 @@ pipeline {
         }
         changed {
             echo 'Pipeline state has changed'
-        }
-        always {
-            archiveArtifacts "dist/*"   // where to find the build artifacts
-            stash includes: 'dist/*.js', name: 'debugBuiltArtifacts' // what they are
         }
     }
 }
@@ -72,7 +70,7 @@ The following JSHint rules are configured inside the `.jshintrc` file:
 The code inside `src/badCode.js` violates these rules, unlike the code inside `goodCode.js`. `badCode.js` is deliberately excluded from validation.
 
 #### Minification
-This task just takes `src/goodCode.js` and minifies it. The result will be inside the `dist` folder, and Jenkins considers this to be the build artifact.
+This task just takes `src/goodCode.js` and minifies it. The result will be inside the `dist` folder if it succeeds, and Jenkins considers this to be the build artifact.
 
 ## Licence
 See the attached LICENSE file.
